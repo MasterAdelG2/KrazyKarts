@@ -1,0 +1,26 @@
+{
+	"folders": [
+		{
+			"name": "KrazyKarts",
+			"path": "."
+		},
+		{
+			"name": "UE4",
+			"path": "C:\\MYEngines\\UE_4.26"
+		}
+	],
+	"settings": {
+		"typescript.tsc.autoDetect": "off",
+		"C_Cpp.default.forcedInclude": [
+			"${default}",
+			"C:\\PROJECTS\\UE\\KrazyKarts\\Intermediate\\Build\\Win64\\UE4Editor\\Development\\KrazyKarts\\Definitions.KrazyKarts.h",
+			"C:\\PROJECTS\\UE\\KrazyKarts\\Intermediate\\Build\\Win64\\KrazyKartsEditor\\Development\\Engine\\SharedPCH.Engine.ShadowErrors.h"
+		]
+	},
+	"extensions": {
+		"recommendations": [
+			"ms-vscode.cpptools",
+			"ms-dotnettools.csharp"
+		]
+	}
+}
