@@ -28,8 +28,57 @@ public:
 
 
 private:
+
+	FVector GetAirResistance();
+	FVector GetRollingResistance();
+
+	void ApplyRotation(float DeltaTime);
+
+	void UpdateLocationFromVelocity(float DeltaTime);
+
+	// The mass of the car (kg).
+	UPROPERTY(EditAnywhere)
+	float Mass = 1000;
+	
+	// The force applied to the car when the throttle is fully down (N).
+	UPROPERTY(EditAnywhere)
+	float MaxDrivingForce = 10000;
+
+	// Higher means more drag.
+	UPROPERTY(EditAnywhere)
+	float DragCoefficient = 16;
+
+	// Higher means more rolling resistance.
+	UPROPERTY(EditAnywhere)
+	float RollingResistanceCoefficient = 0.015;
+
+	// Minimum radius of the car turning circle at full lock (m).
+	UPROPERTY(EditAnywhere)
+	float MinTurningRadius = 10;
+
+	// The number of degrees rotated per second at full control throw (degrees/s).
+	UPROPERTY(EditAnywhere)
+	float MaxDegreesPerSecond = 90;
+
 	void MoveForward(float Value);
+	void MoveRight(float Value);
+
+	UFUNCTION(Server, Reliable, WithValidation)
+	void Server_MoveForward(float Value);
+
+	UFUNCTION(Server, Reliable, WithValidation)
+	void Server_MoveRight(float Value);
 
 	FVector Velocity;
+
+	UPROPERTY(Replicated)
+	FVector ReplicatedLocation;
+
+	UPROPERTY(Replicated)
+	FRotator ReplicatedRotation;
+
+	float Throttle;
+
+	float SteeringThrow;
 
 };
