@@ -28,6 +28,9 @@ void AGoKart::GetLifetimeReplicatedProps(TArray< FLifetimeProperty > & OutLifeti
 {
 	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
 	DOREPLIFETIME(AGoKart, ReplicatedTranform);
+	DOREPLIFETIME(AGoKart, Velocity);
+	DOREPLIFETIME(AGoKart, Throttle);
+	DOREPLIFETIME(AGoKart, SteeringThrow);
 }
 
 // Called every frame
